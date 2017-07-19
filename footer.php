@@ -36,11 +36,11 @@
 					echo get_theme_mod('copyright');
 					
 		} else { 
-						$theme_uri = 'https://wparena.com/themes/seo-wp-theme/';
+						$wordpress_uri = 'https://wordpress.org/';
 						$author_uri = 'https://wparena.com/';
 				?>
 
-				&copy; <?php echo date("o"); ?> <a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name'); ?></a> - <a href="<?php echo $theme_uri; ?>" target="_blank">SEO WP Theme</a> <?php echo __('Designed by', 'seo-wp'); ?> <a href="<?php echo $author_uri; ?>" target="_blank">WPArena</a>
+				&copy; <?php echo date("o"); ?> <a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name'); ?></a> - Theme By <a href="<?php echo $author_uri; ?>" target="_blank">WPArena</a> · <?php echo __('Powered by', 'seo-wp'); ?> <a href="<?php echo $wordpress_uri; ?>" target="_blank">WordPress.</a>
 
 			<?php } ?>
 
