@@ -4,8 +4,8 @@ Contributors: wordpressarena, wparena
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
 
 Requires at least: 4.6
-Tested up to: 4.7.5
-Stable tag: 2.3
+Tested up to: 4.8
+Stable tag: 2.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,7 +16,7 @@ SEO WP Blog WordPress Theme
 Description: SEO WP is a free responsive WordPress Blog theme, based on Material Design. With the clean and simple interface, it can be used for any kind of blog website. Especially, SEO WP Theme is fully Search Engine Optimized. The theme is compatible with latest Google SEO recommendations. The Optimization techniques used in <a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> is meticulous and is done with great care. The title of the site, heading tag in single pages, archive pages are all done in accordance with Search Engines. The Theme is very much responsive, simple yet optimized for performance. The effects can make this theme super cool. Google loves SEO Friendly and Speedy Themes and we know that. That's why SEO WP is really fast and is completely optimized. We made this theme compatible with Jetpack Infinite Scroll. The theme also remove extra JetPack CSS files for further load time improvements. Let's try it and give your feedback to us by theme homepage link above.
 
 
-See demo: http://demo.wparena.com/seo-wp/
+See demo: https://demo.wparena.com/seo-wp/
 
 == Installation ==
 	
@@ -65,6 +65,11 @@ c) Images
  
  
 == Changelog ==
+
+= 2.3.1 =
+* Released: July 19, 2017
+* Fixed: Showing links twice in footer
+* Fixed footer padding
 
 = 2.3 =
 * Released: May 22, 2017
