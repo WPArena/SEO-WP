@@ -5,7 +5,7 @@
  * @package seo_wp
  */
 
-define( 'SEO_WP_THEME_VERSION', '2.3' );
+define( 'SEO_WP_THEME_VERSION', '2.3.1' );
 
 if ( ! function_exists( 'seo_wp_setup' ) ) :
 	/**
