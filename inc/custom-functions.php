@@ -3,7 +3,7 @@
 /**
  * Rewrite uri stylesheet
  */
-if ( ! function_exists( 'seo_wp_rewrite_uri_stylesheet' ) ) {
+/**if ( ! function_exists( 'seo_wp_rewrite_uri_stylesheet' ) ) {
 	function seo_wp_rewrite_uri_stylesheet() {
 		return get_stylesheet_directory_uri() . '/style.min.css';
 	}
@@ -16,7 +16,7 @@ if ( ! function_exists( 'seo_wp___return_false_value' ) ) {
 		return $value;
 	}
 }
-
+*/
 
 /**
  * Custom header image

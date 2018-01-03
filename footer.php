@@ -53,7 +53,7 @@
 
 <div class="fixed-action-btn to-top">
 	<a class="btn-floating btn-large waves-effect waves-light">
-		<i class="mdi-hardware-keyboard-arrow-up"></i>
+		<i class="material-icons">keyboard_arrow_up</i>
 	</a>
 </div>
 

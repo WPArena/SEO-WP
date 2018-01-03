@@ -6,7 +6,6 @@
  *
  * @package seo_wp
  */
-
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -16,6 +15,7 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -24,9 +24,11 @@
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header row" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<div class="nav-wrapper container">
+
+			<div class="nav-wrapper container ">
+				
 				<?php seo_wp_logo(); ?>
-				<a href="#" data-activates="side-primary-menu" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="mdi-navigation-menu"></i></a>
 
 				<?php wp_nav_menu(
 					array(
@@ -46,6 +48,7 @@
 				); ?>
 
 				<?php //dynamic_sidebar( 'menu-right' ); ?>
+			
 			</div>
 		</nav>
 		<!-- #site-navigation -->
@@ -55,3 +58,11 @@
 	<div id="content" class="site-content container">
 		<div class="row">
 			<?php seo_wp_breadcrumbs(); ?>
+
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+
