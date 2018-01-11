@@ -40,7 +40,7 @@
 						$author_uri = 'https://wparena.com/';
 				?>
 
-				&copy; <?php echo date("o"); ?> <a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name'); ?></a> - Theme By <a href="<?php echo $author_uri; ?>" target="_blank">WPArena</a> · <?php echo __('Powered by', 'seo-wp'); ?> <a href="<?php echo $wordpress_uri; ?>" target="_blank">WordPress.</a>
+				&copy; <?php echo date("o"); ?> <a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name'); ?></a> - Theme By <a href="<?php echo $author_uri; ?>" target="_blank">WPArena</a> . <?php echo __('Powered by', 'seo-wp'); ?> <a href="<?php echo $wordpress_uri; ?>" target="_blank">WordPress.</a>
 
 			<?php } ?>
 

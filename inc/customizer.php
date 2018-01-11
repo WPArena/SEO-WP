@@ -18,8 +18,8 @@ function copyright_customizer_register( $wp_customize ) {
 		'title'       => __( 'Copyright Options', 'seo-wp' ),
 		'description' => 'Add/Edit copyright infomation'
 	) );
-	$wp_customize->add_setting( 'copyright', array(
-		'default' => '<a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> Designed by <a href="https://wparena.com/">WPArena</a>.',
+	$wp_customize->add_setting( 'copyright', array(/*
+		'default' => '<a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> Designed by <a href="https://wparena.com/">WPArena</a>.',*/
 		'sanitize_callback' => 'sanitize_text_field'
 	) );
 	$wp_customize->add_control( 'designer', array(
@@ -34,23 +34,26 @@ add_action( 'customize_register', 'copyright_customizer_register' );
 
 
 // Customize Appearance Options
-function wparena_customize_register( $wp_customize ) {
+function seowp_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting('wp_header_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
-
+	
 
 	$wp_customize->add_setting('wp_footer_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_setting('wp_card_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 
@@ -59,43 +62,46 @@ function wparena_customize_register( $wp_customize ) {
 	$wp_customize->add_setting('wp_link_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_setting('wp_btn_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_setting('wp_btn_hover_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 
 
-
+	
 
 	$wp_customize->add_section('wp_site_colors', array(
-		'title' => __('Site Colors', 'LearningWordPress'),
+		'title' => __('Site Colors', 'seo-wp'),
 		'priority' => 20,
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_header_color_control', array(
-		'label' => __('Header Color', 'LearningWordPress'),
+		'label' => __('Header Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_header_color',
 	) ) );
 
-
+	
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_footer_color_control', array(
-		'label' => __('Footer Color', 'LearningWordPress'),
+		'label' => __('Footer Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_footer_color',
 	) ) );
 
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_card_color_control', array(
-		'label' => __('Card Header Color', 'LearningWordPress'),
+		'label' => __('Card Header Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_card_color',
 	) ) );
@@ -104,25 +110,25 @@ function wparena_customize_register( $wp_customize ) {
 
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_link_color_control', array(
-		'label' => __('Link Color', 'LearningWordPress'),
+		'label' => __('Link Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_link_color',
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_btn_color_control', array(
-		'label' => __('Button Color', 'LearningWordPress'),
+		'label' => __('Button Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_btn_color',
 	) ) );
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'wp_btn_hover_color_control', array(
-		'label' => __('Button Hover Color', 'LearningWordPress'),
+		'label' => __('Button Hover Color', 'seo-wp'),
 		'section' => 'wp_site_colors',
 		'settings' => 'wp_btn_hover_color',
 	) ) );
 }
 
-add_action('customize_register', 'wparena_customize_register');
+add_action('customize_register', 'seowp_customize_register');
 
 
 
@@ -130,11 +136,11 @@ add_action('customize_register', 'wparena_customize_register');
 
 
 // Output Customize CSS
-function wparena_customize_css() { ?>
+function seowp_customize_css() { ?>
 
 	<style type="text/css">
 
-
+		
 		nav {
 			background-color: <?php echo get_theme_mod('wp_header_color'); ?>;
 		}
@@ -156,7 +162,7 @@ function wparena_customize_css() { ?>
 		.site-header nav ul li.current-menu-item a:link,
 		.site-header nav ul li.current-menu-item a:visited,
 		.site-header nav ul li.current-page-ancestor a:link,
-		.site-header nav ul li.current-page-ancestor a:visited,
+		.site-header nav ul li.current-page-ancestor a:visited, 
 		.widget-area h3.widget-title:after{
 			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
 		}
@@ -173,10 +179,10 @@ function wparena_customize_css() { ?>
 		div.hd-search #searchsubmit:hover {
 			background-color: <?php echo get_theme_mod('wp_btn_hover_color'); ?>;
 		}
-
+		
 
 	</style>
 
 <?php }
 
-add_action('wp_head', 'wparena_customize_css');
+add_action('wp_head', 'seowp_customize_css');

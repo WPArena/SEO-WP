@@ -9,14 +9,16 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="card hoverable <?php echo( has_post_thumbnail() ? 'medium' : 'no-thumbnail' ); ?>">
 			<?php ?>
-			<div class="card-image waves-effect waves-block waves-light">
+			<a href="<?php echo esc_url( get_permalink() ); ?>">
+				<div class="card-image waves-effect waves-block waves-light">
 				<?php if ( has_post_thumbnail() ) {
 					seo_wp_post_thumbnail();
 				}
 				$sticky = is_sticky() ? '<i class="material-icons">loyalty</i>' : '';
 				?>
-				<?php the_title( sprintf( '<h2 class="entry-title card-title"><a href="%s" rel="bookmark">%s', esc_url( get_permalink() ), $sticky ), '</a></h2>' ); ?>
-			</div>
+				<?php the_title('<h2 class="entry-title card-title">','</h2>' ); ?>
+				</div>
+			</a>
 			<div class="card-content">
 				<!-- .entry-header -->
 				<div class="entry-content">

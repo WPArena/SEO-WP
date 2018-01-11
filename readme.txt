@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 2.3.2
+Stable tag: 2.3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -19,7 +19,7 @@ Description: SEO WP is a free responsive WordPress Blog theme, based on Material
 See demo: https://demo.wparena.com/seo-wp/
 
 == Installation ==
-
+	
 1. In your admin panel, go to Appearance > Themes and click the Add New button.
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
@@ -62,9 +62,24 @@ c) Images
 * The image used in screenshot of the theme has been released into the public domain by its author.
  - URL: https://commons.wikimedia.org/wiki/File:Faust_bei_der_Arbeit.JPG
  - This work has been released into the public domain, Wikimedia Commons license.
-
-
+ 
+ 
 == Changelog ==
+
+= 2.3.3 =
+* Released: January 9 , 2018
+* New: Added "sanitize_callback" arguments to previously added new options
+* resolved : Issue of tooltip and materliaze icons
+* resolved : Some issues in footer section
+* resolved : Preloader issue
+* resolved : Animation issue
+* Removed  : Errors mentioned in (Theme Checker plugin)
+
+= 2.3.2 =
+* Released: January 3 , 2018
+* New: Added site colors options
+* New: Imported materialize css from cdn
+* Fixed: lot of css bugs
 
 = 2.3.1 =
 * Released: July 19, 2017
