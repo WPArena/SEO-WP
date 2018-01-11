@@ -85,7 +85,7 @@ if ( ! function_exists( 'seo_wp_entry_footer' ) ) : /**
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'seo-wp' ) );
 			if ( $categories_list && seo_wp_categorized_blog() ) {
-				printf( '<p class="cat-links"><i class="mdi-file-folder"></i> ' . esc_html__( 'Posted in %1$s', 'seo-wp' ) . '</p>', $categories_list ); // WPCS: XSS OK.
+				printf( '<i style="position:absolute;margin-top:15px;" class="material-icons">local_offer</i><p style="margin-left:25px;" class="cat-links"> ' . esc_html__( 'Posted in %1$s', 'seo-wp' ) . '</p>', $categories_list ); // WPCS: XSS OK.
 			}
 
 			//			printf('<p>Updated on %1$s</p>', '');
@@ -338,7 +338,7 @@ function seo_wp_breadcrumbs() {
 
 
 	// Home page
-	echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-home breadcrumb"><a itemprop="item" class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . $home_title . '"><span itemprop="name">' . $home_title . '</span></a></li>';
+	echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-home breadcrumb"><a itemprop="item" class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . $home_title . '"><i style="margin-top:-2px;" class="material-icons">home</i></a></li>';
 	echo '<li class="separator separator-home material-icons">chevron_right</li>';
 
 	if ( is_single() ) {
@@ -346,7 +346,7 @@ function seo_wp_breadcrumbs() {
 		// Single post (Only display the first category)
 		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-cat item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><a itemprop="item" class="bread-cat bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '" href="' . get_category_link( $category[0]->term_id ) . '" title="' . $category[0]->cat_name . '"><span itemprop="name">' . $category[0]->cat_name . '</span></a></li>';
 		echo '<li class="separator separator-' . $category[0]->term_id . ' material-icons">chevron_right</li>';
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
+		echo '<li style="margin-top: 1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
 
 	} else if ( is_category() ) {
 
@@ -368,14 +368,14 @@ function seo_wp_breadcrumbs() {
 			$parents = '';
 			foreach ( $anc as $ancestor ) {
 				$parents .= '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-parent item-parent-' . $ancestor . '"><a itemprop="item" class="bread-parent bread-parent-' . $ancestor . '" href="' . get_permalink( $ancestor ) . '" title="' . get_the_title( $ancestor ) . '"><span itemprop="name">' . get_the_title( $ancestor ) . '</span></a></li>';
-				$parents .= '<li class="separator separator-' . $ancestor . ' mdi-navigation-chevron-right"></li>';
+				$parents .= '<li style="margin-left:-10px;" class="material-icons col">chevron_right</li>';
 			}
 
 			// Display parent pages
 			echo $parents;
 
 			// Current page
-			echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
+			echo '<li style="margin-top:1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
 
 		} else {
 
@@ -505,8 +505,9 @@ function seo_post_navigation() {
 		?>
 		<div class="col m6 prev-post" style="padding-left: 22px;">
 		<a class="" href="<?php echo esc_url(get_permalink( $next_post->ID )); ?>">
-			<span class="next-prev-text"><?php echo '<i class="material-icons col">arrow_back</i>'; ?><?php _e('PREVIOUS POST','seo-wp'); ?></span>
-			<br><span class="hide-on-small-only"><?php if(get_the_title( $next_post->ID ) != ''){echo get_the_title( $next_post->ID );} else {  _e('PREVIOUS POST','seo-wp'); }?></span></a>
+			<?php echo '<i class="material-icons col">arrow_back</i>'; ?>
+			<span class="next-prev-text"><?php _e('PREVIOUS POST','seo-wp'); ?></span>
+			<br><?php echo '<i style=" visibility:hidden;" class="material-icons col">arrow_back</i>'; ?><span class="hide-on-small-only"><?php if(get_the_title( $next_post->ID ) != ''){echo get_the_title( $next_post->ID );} else {  _e('PREVIOUS POST','seo-wp'); }?></span></a>
 		</div>
 		<?php } 
 		 else { 
@@ -521,8 +522,8 @@ function seo_post_navigation() {
 			$prev_post = get_previous_post();
 			if (!empty( $prev_post )){
 		?>
-			<div class="col m6 next-post" style="text-align: right;padding-right: 25px;">
-				<a href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>">
+			<div class="col m6 next-post" style="padding-right: 25px;">
+				<a style='float: right;' href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>">
 					<span class="next-prev-text">
 						<?php _e('NEXT POST','seo-wp'); ?>
 						<?php echo '<i class="material-icons right">arrow_forward</i>'; ?>

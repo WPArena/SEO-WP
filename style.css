@@ -4,7 +4,7 @@ Author: WPArena
 Author URI: https://wparena.com/about-us/
 Theme URI: https://wparena.com/
 Description: SEO WP is a free responsive WordPress Blog theme, based on Material Design. With the clean and simple interface, it can be used for any kind of blog website. Especially, SEO WP Theme is fully Search Engine Optimized. The theme is compatible with latest Google SEO recommendations. The Optimization techniques used in <a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> is meticulous and is done with great care. The title of the site, heading tag in single pages, archive pages are all done in accordance with Search Engines. The Theme is very much responsive, simple yet optimized for performance. The effects can make this theme super cool. Google loves SEO Friendly and Speedy Themes and we know that. That's why SEO WP is really fast and is completely optimized. We made this theme compatible with Jetpack Infinite Scroll. The theme also remove extra JetPack CSS files for further load time improvements. Let's try it and give your feedback to us by theme homepage link above.
-Version: 2.3.3
+Version: 2.3.4
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: seo-wp
@@ -110,7 +110,7 @@ h3 {
 }
 
 #site-navigation .primary-menu > li > ul {
-    right: 0;
+    /*right: 0;*/
     z-index: 100;
 }
 
@@ -119,7 +119,7 @@ h3 {
 }
 
 #site-navigation .primary-menu > li > ul > li > ul {
-    right: 100%;
+    left: 100%;
     top: 0;
 }
 
@@ -508,15 +508,36 @@ nav .brand-logo {
     transform: translate3d(0px, 0px, 0px);
 }
 
+ul.sub-menu {
+    display: none;
+    background-color: #1E88E5;
+    position: absolute;
+    width:200%;
+}
+
+i.material-icons {
+    font-size: 21px;
+}
+
+time.entry-date{
+    margin-left: -6px;
+}
+
+.author a.url.fn.n{
+    margin-left: -6px;
+}
+
+.comment-author .avatar{
+    height: 80px;
+    position: relative;
+    top: 22px;
+    width: 60px;
+}
 
 
-
-
-
-
-
-
-
+p.cat-links a{
+    margin-right: 10px !important;
+}
 
 
 
