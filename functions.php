@@ -5,7 +5,7 @@
  * @package seo_wp
  */
 
-define( 'SEO_WP_THEME_VERSION', '2.3.1' );
+define( 'SEO_WP_THEME_VERSION', '2.3.3' );
 
 if ( ! function_exists( 'seo_wp_setup' ) ) :
 	/**
@@ -171,14 +171,16 @@ add_action( 'widgets_init', 'seo_wp_widgets_init' );
  */
 function seo_wp_scripts() {
 	// Global
+	
+	wp_enqueue_style('materialize.min.css', 'https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css', array(), SEO_WP_THEME_VERSION );
 
 	wp_enqueue_style( 'seo_wp-style', get_stylesheet_uri(), array(), SEO_WP_THEME_VERSION );
 
-	wp_enqueue_style('customstyle', get_template_directory_uri() . '/style.min.css', array(), '1.0.0', 'all');
-
+	//wp_enqueue_style('customstyle', get_template_directory_uri() . '/style.min.css', array(), '1.0.0', 'all');
 	wp_enqueue_style( 'seo_wp-Material_Icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), SEO_WP_THEME_VERSION );
 
 	wp_enqueue_script( 'seo_wp-materialize-js', get_template_directory_uri() . '/assets/js/materialize.min.js', array( 'jquery' ), '0.97.5', true );
+	
 	wp_enqueue_script( 'seo_wp-animations-js', get_template_directory_uri() . '/assets/js/animations.js', array( 'jquery' ), '0.97.5' 	, true );
 
 	wp_enqueue_script( 'seo_wp-custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(
@@ -236,3 +238,6 @@ require get_template_directory() . '/inc/widgets.php';
  * Custom functions
  */
 require get_template_directory() . '/inc/custom-functions.php';
+
+add_theme_support( 'custom-background');
+add_theme_support( "custom-header");

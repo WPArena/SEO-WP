@@ -19,6 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<!-- Show Preloading Bar -->	
 <?php seo_wp_preloader(); ?>
 
 <div id="page" class="hfeed site">
@@ -54,6 +55,7 @@
 		<!-- #site-navigation -->
 	</header>
 	<!-- #masthead -->
+
 
 	<div id="content" class="site-content container">
 		<div class="row">

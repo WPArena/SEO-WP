@@ -22,13 +22,13 @@ if ( ! function_exists( 'seo_wp_posted_on' ) ) : /**
 			esc_html( get_the_date( 'F j, Y' ) )
 		);
 
-		$posted_on_icon = '<i class="mdi-notification-event-note"></i>';
+		$posted_on_icon = '<i class="material-icons col">event_note</i>';
 		$posted_on      = $posted_on_icon . sprintf(
 				esc_html_x( ' %s', 'post date', 'seo-wp' ),
 				$time_string
 			);
 
-		$byline_icon = '<i class="mdi-action-account-box"></i>';
+		$byline_icon = '<i class="material-icons col">account_box</i>';
 		$byline      = $byline_icon . sprintf(
 				esc_html_x( ' %s', 'post author', 'seo-wp' ),
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
@@ -55,19 +55,22 @@ if ( ! function_exists( 'seo_wp_posted_on_raw' ) ) : /**
 			esc_html( get_the_date( 'F j, Y' ) )
 		);
 
-		$posted_on_icon = '<i class="mdi-notification-event-note"></i>';
+		$posted_on_icon = '<i class="material-icons col">event_note</i>';
 		$posted_on      = $posted_on_icon . sprintf(
 				esc_html_x( ' %s', 'post date', 'seo-wp' ),
 				$time_string
 			);
 
-		$byline_icon = '<i class="mdi-action-account-box"></i>';
+		$byline_icon = '<i class="material-icons col">account_box</i>';
 		$byline      = $byline_icon . sprintf(
 				esc_html_x( ' %s', 'post author', 'seo-wp' ),
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
 
-		echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on posted">' . $posted_on . '</span>';
+		echo '<p style="display:inline-block;margin:10px;">' . $byline . '</p>';
+
+		 // WPCS: XSS OK.
 
 	}
 }
@@ -336,13 +339,13 @@ function seo_wp_breadcrumbs() {
 
 	// Home page
 	echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-home breadcrumb"><a itemprop="item" class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . $home_title . '"><span itemprop="name">' . $home_title . '</span></a></li>';
-	echo '<li class="separator separator-home mdi-navigation-chevron-right"></li>';
+	echo '<li class="separator separator-home material-icons">chevron_right</li>';
 
 	if ( is_single() ) {
 
 		// Single post (Only display the first category)
 		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-cat item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><a itemprop="item" class="bread-cat bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '" href="' . get_category_link( $category[0]->term_id ) . '" title="' . $category[0]->cat_name . '"><span itemprop="name">' . $category[0]->cat_name . '</span></a></li>';
-		echo '<li class="separator separator-' . $category[0]->term_id . ' mdi-navigation-chevron-right"></li>';
+		echo '<li class="separator separator-' . $category[0]->term_id . ' material-icons">chevron_right</li>';
 		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
 
 	} else if ( is_category() ) {
@@ -500,9 +503,9 @@ function seo_post_navigation() {
 			$next_post = get_next_post();
 			if ( is_a( $next_post , 'WP_Post' ) ) { 
 		?>
-		<div class="col m6 prev-post">
+		<div class="col m6 prev-post" style="padding-left: 22px;">
 		<a class="" href="<?php echo esc_url(get_permalink( $next_post->ID )); ?>">
-			<span class="next-prev-text"><?php _e('PREVIOUS POST','seo-wp'); ?></span>
+			<span class="next-prev-text"><?php echo '<i class="material-icons col">arrow_back</i>'; ?><?php _e('PREVIOUS POST','seo-wp'); ?></span>
 			<br><span class="hide-on-small-only"><?php if(get_the_title( $next_post->ID ) != ''){echo get_the_title( $next_post->ID );} else {  _e('PREVIOUS POST','seo-wp'); }?></span></a>
 		</div>
 		<?php } 
@@ -518,11 +521,20 @@ function seo_post_navigation() {
 			$prev_post = get_previous_post();
 			if (!empty( $prev_post )){
 		?>
-			<div class="col m6 next-post">
-			<a class="" href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>">
-			<span class="next-prev-text"><?php _e('NEXT POST','seo-wp'); ?></span>
-			<br><span class="hide-on-small-only"><?php if(get_the_title( $prev_post->ID ) != ''){echo get_the_title( $prev_post->ID );} else { _e('NEXT POST','seo-wp'); }?></span></a>
+			<div class="col m6 next-post" style="text-align: right;padding-right: 25px;">
+				<a href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>">
+					<span class="next-prev-text">
+						<?php _e('NEXT POST','seo-wp'); ?>
+						<?php echo '<i class="material-icons right">arrow_forward</i>'; ?>
+					</span>
+					<br>
+					<span class="hide-on-small-only">
+						<?php if(get_the_title( $prev_post->ID ) != ''){echo get_the_title( $prev_post->ID );} else { _e('NEXT POST','seo-wp'); }?>
+							
+					</span>
+				</a>
 			</div>
+
 		<?php } 
 		 else { 
 			echo '<div class="col m6">';
