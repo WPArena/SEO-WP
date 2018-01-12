@@ -141,7 +141,7 @@ function seowp_customize_css() { ?>
 	<style type="text/css">
 
 		
-		nav {
+		nav{
 			background-color: <?php echo get_theme_mod('wp_header_color'); ?>;
 		}
 
@@ -154,17 +154,25 @@ function seowp_customize_css() { ?>
 			background-color: <?php echo get_theme_mod('wp_footer_color'); ?>;
 		}
 
-		a:link,
+		/*a:link,
 		a:visited {
 			color: <?php echo get_theme_mod('wp_link_color'); ?>;
 		}
-
+*/		
+		ul.sub-menu ,
 		.site-header nav ul li.current-menu-item a:link,
 		.site-header nav ul li.current-menu-item a:visited,
 		.site-header nav ul li.current-page-ancestor a:link,
 		.site-header nav ul li.current-page-ancestor a:visited, 
 		.widget-area h3.widget-title:after{
 			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
+		}
+
+
+		a.url.fn.n,
+		p.edit-link .post-edit-link,
+		p.cat-links a{
+			color: <?php echo get_theme_mod('wp_link_color').'!important'; ?>;
 		}
 
 		.btn-a,

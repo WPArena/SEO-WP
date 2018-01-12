@@ -4,7 +4,7 @@ Author: WPArena
 Author URI: https://wparena.com/about-us/
 Theme URI: https://wparena.com/
 Description: SEO WP is a free responsive WordPress Blog theme, based on Material Design. With the clean and simple interface, it can be used for any kind of blog website. Especially, SEO WP Theme is fully Search Engine Optimized. The theme is compatible with latest Google SEO recommendations. The Optimization techniques used in <a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> is meticulous and is done with great care. The title of the site, heading tag in single pages, archive pages are all done in accordance with Search Engines. The Theme is very much responsive, simple yet optimized for performance. The effects can make this theme super cool. Google loves SEO Friendly and Speedy Themes and we know that. That's why SEO WP is really fast and is completely optimized. We made this theme compatible with Jetpack Infinite Scroll. The theme also remove extra JetPack CSS files for further load time improvements. Let's try it and give your feedback to us by theme homepage link above.
-Version: 2.3.4
+Version: 2.3.5
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: seo-wp
@@ -510,7 +510,6 @@ nav .brand-logo {
 
 ul.sub-menu {
     display: none;
-    background-color: #1E88E5;
     position: absolute;
     width:200%;
 }
@@ -540,16 +539,31 @@ p.cat-links a{
 }
 
 
+div.navigation.pagination{
+    height:auto;
+    background-color: transparent;
+    text-align: center;
+}
 
+.navigation .nav-links a,.navigation .nav-links span,.navigation .nav-links a{
+    color:white;
+    font-size: 16px;
+    background-color: #4490fc;
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    font-weight: 400;
+}
 
+.screen-reader-text{
+	color: #1E88E5;
+	display: none;
+}
 
+.navigation .nav-links a:hover,.navigation .nav-links span:hover,.navigation .nav-links a:hover{
+	background-color: #44c7fc;
+}
 
-
-
-
-
-
-
-
-
+.pagination .nav-links .current{
+	background-color: #44c7fc;
+}
 
