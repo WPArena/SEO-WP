@@ -94,7 +94,7 @@ if ( ! function_exists( 'seo_wp_entry_footer' ) ) : /**
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'seo-wp' ) );
 			if ( $tags_list ) {
-				printf( '<p class="tags-links"><i class="mdi-action-label"></i> ' . esc_html__( 'Tagged in %1$s', 'seo-wp' ) . '</p>', $tags_list ); // WPCS: XSS OK.
+				printf( '<br><i style="position:absolute;margin-top:16px;" class="material-icons">local_offer</i> <p style="margin-left:25px;" class="tags-links">' . esc_html__( 'Tagged in %1$s', 'seo-wp' ) . '</p>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 

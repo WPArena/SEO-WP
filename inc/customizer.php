@@ -25,7 +25,7 @@ function copyright_customizer_register( $wp_customize ) {
 	$wp_customize->add_control( 'designer', array(
 		'label'    => __( 'Copyright: ', 'seo-wp' ),
 		'section'  => 'footer_copyright',
-		'settings' => 'copyright'
+		'settings' => 'copyright'	
 	) );
 }
 
@@ -168,10 +168,17 @@ function seowp_customize_css() { ?>
 			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
 		}
 
+		li.page_item_has_children ul {
+			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
+		}
 
-		a.url.fn.n,
-		p.edit-link .post-edit-link,
-		p.cat-links a{
+		.reply .comment-reply-link{
+		border:1px solid <?php echo get_theme_mod('wp_link_color'); ?>;
+		}
+
+		.author.vcard a,
+		.edit-link .post-edit-link,
+		.cat-links a,.tags-links a{
 			color: <?php echo get_theme_mod('wp_link_color').'!important'; ?>;
 		}
 
