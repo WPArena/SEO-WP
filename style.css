@@ -4,7 +4,7 @@ Author: WPArena
 Author URI: https://wparena.com/about-us/
 Theme URI: https://wparena.com/
 Description: SEO WP is a free responsive WordPress Blog theme, based on Material Design. With the clean and simple interface, it can be used for any kind of blog website. Especially, SEO WP Theme is fully Search Engine Optimized. The theme is compatible with latest Google SEO recommendations. The Optimization techniques used in <a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> is meticulous and is done with great care. The title of the site, heading tag in single pages, archive pages are all done in accordance with Search Engines. The Theme is very much responsive, simple yet optimized for performance. The effects can make this theme super cool. Google loves SEO Friendly and Speedy Themes and we know that. That's why SEO WP is really fast and is completely optimized. We made this theme compatible with Jetpack Infinite Scroll. The theme also remove extra JetPack CSS files for further load time improvements. Let's try it and give your feedback to us by theme homepage link above.
-Version: 2.3.5
+Version: 2.3.6
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: seo-wp
@@ -511,7 +511,9 @@ nav .brand-logo {
 ul.sub-menu {
     display: none;
     position: absolute;
-    width:200%;
+}
+ul.sub-menu a{
+    white-space: nowrap;
 }
 
 i.material-icons {
@@ -527,15 +529,21 @@ time.entry-date{
 }
 
 .comment-author .avatar{
-    height: 80px;
+    height: 60px;
     position: relative;
-    top: 22px;
+    top: 45px;
     width: 60px;
+    border-radius: 50%;
+}
+
+.comment-author img{
+	padding: 0px;
 }
 
 
 p.cat-links a{
-    margin-right: 10px !important;
+    margin-right: 0px !important;
+    margin-left: 3px !important;
 }
 
 
@@ -545,6 +553,12 @@ div.navigation.pagination{
     text-align: center;
 }
 
+nav.navigation.pagination{
+	background-color: transparent;
+	text-align: center;
+	box-shadow: none;
+}
+
 .navigation .nav-links a,.navigation .nav-links span,.navigation .nav-links a{
     color:white;
     font-size: 16px;
@@ -552,6 +566,7 @@ div.navigation.pagination{
     border-radius: 5px;
     padding: 5px 10px 5px 10px;
     font-weight: 400;
+	transition: 0.3s;
 }
 
 .screen-reader-text{
@@ -561,9 +576,125 @@ div.navigation.pagination{
 
 .navigation .nav-links a:hover,.navigation .nav-links span:hover,.navigation .nav-links a:hover{
 	background-color: #44c7fc;
+	box-shadow: 3px 3px grey;
+	transition: 0.5s;
 }
 
 .pagination .nav-links .current{
 	background-color: #44c7fc;
 }
 
+
+/*Reply Button Css*/
+
+.reply .comment-reply-link{
+	padding: 4px 10px;
+	border-radius: 5px;
+	transition: 0.5s;
+}
+
+.reply .comment-reply-link:hover{
+	background-color: rgb(66, 134, 244);
+	transition: 0.7s;
+	color: white;
+}
+
+ol.children{
+	list-style-type: none;
+}
+
+.card .card-content .card-title{
+	margin-bottom: 25px;
+}
+
+.entry-header .entry-title{
+	font-weight: 400;
+}
+
+.next-prev-text{
+	font-weight: 800;
+}
+
+.entry-content img{
+	margin-top: 15px;
+	margin-bottom: 12px;
+}
+
+.entry-content .page-links{
+	text-align: center;
+	font-size: 15px;
+}
+
+
+/*Nav-bar Without Menu Selected*/
+
+ul.children{
+	position: absolute;
+	z-index: 100;
+	display: none;
+}
+
+.page_item_has_children .children .page_item a{
+	white-space: nowrap;
+}
+
+li.page_item_has_children:hover ul.children{
+	display: block;
+	display: inline-grid;
+	animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+ul.children .page_item a:hover{
+	background-color: rgba(0,0,0,0.1);
+}
+
+
+/*Side-bar Tag  Css*/
+
+.tagcloud a.tag-cloud-link{
+	font-size: 11px !important;
+	padding: 2px;
+	border-radius: 3px;
+	transition: 0.5s;
+	margin-bottom: 8px;
+}
+
+.tagcloud a.tag-cloud-link:hover{
+	background-color: rgb(66, 134, 244);
+	transition: 0.9s;
+	color: white;
+}
+
+
+/*Post Comment Button*/
+
+.form-submit .submit:hover {
+	box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75) !important;
+}
+
+
+/*Tagged-In links*/
+
+p.tags-links a{
+    margin-right:0px !important;
+    margin-left: 3px !important;
+}
+
+
+
+/*blockquote Css*/
+blockquote{
+	font-style: italic;
+}
+
+/*images CSS*/
+
+img{
+	max-height: 100% !important;
+	max-width: 100% !important;
+}

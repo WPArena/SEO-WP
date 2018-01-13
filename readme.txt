@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.6
 Tested up to: 4.9.1
-Stable tag: 2.3.5
+Stable tag: 2.3.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -65,6 +65,13 @@ c) Images
  
  
 == Changelog ==
+
+= 2.3.6 =
+* Released: January 13 , 2018
+* Resolved Image Size issues
+* Avatar img stylig
+* Link styling
+* Additional CSS styling
 
 = 2.3.5 =
 * Released: January 12 , 2018

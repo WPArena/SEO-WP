@@ -241,3 +241,8 @@ require get_template_directory() . '/inc/custom-functions.php';
 
 add_theme_support( 'custom-background');
 add_theme_support( "custom-header");
+
+function wpdocs_custom_excerpt_length( $length ) {
+    return 35;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
