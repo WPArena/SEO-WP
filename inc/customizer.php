@@ -159,21 +159,36 @@ function seowp_customize_css() { ?>
 			color: <?php echo get_theme_mod('wp_link_color'); ?>;
 		}
 */		
-		ul.sub-menu ,
-		.site-header nav ul li.current-menu-item a:link,
-		.site-header nav ul li.current-menu-item a:visited,
-		.site-header nav ul li.current-page-ancestor a:link,
-		.site-header nav ul li.current-page-ancestor a:visited, 
+		
 		.widget-area h3.widget-title:after{
 			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
 		}
 
-		li.page_item_has_children ul {
-			background-color: <?php echo get_theme_mod('wp_link_color'); ?>;
+		ul.sub-menu {
+			background-color: <?php echo get_theme_mod('wp_header_color'); ?>;
+		} 
+
+
+		.site-header nav ul li.current-menu-item ,
+		.site-header nav ul li.current-page-ancestor {
+			background-color: rgba(0,0,0,0.1);
 		}
 
-		.reply .comment-reply-link{
-		border:1px solid <?php echo get_theme_mod('wp_link_color'); ?>;
+		.site-header nav ul li.current-menu-item a:hover,
+		.site-header nav ul li.current-page-ancestor a:hover{
+			background-color: rgba(0,0,0,0.1);
+		}
+
+		.logged-in-as a{
+			color: <?php echo get_theme_mod('wp_link_color'); ?>;
+		}
+
+		li.page_item_has_children ul {
+			background-color: <?php echo get_theme_mod('wp_header_color'); ?>;
+		}
+
+		div.primary-menu ul li.current_page_item, .current_page_ancestor {
+			background-color: rgba(0,0,0,0.1);
 		}
 
 		.author.vcard a,
@@ -195,6 +210,9 @@ function seowp_customize_css() { ?>
 			background-color: <?php echo get_theme_mod('wp_btn_hover_color'); ?>;
 		}
 		
+		.form-submit .submit .waves-button-input{
+			background-color: <?php echo get_theme_mod('wp_btn_color'); ?>;
+		}
 
 	</style>
 
