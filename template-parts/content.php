@@ -5,7 +5,8 @@
  * @package seo_wp
  */
 ?>
-<div class="col l6 m6 s12 animation-element archive">
+<div class="col <?php echo 'l'.get_theme_mod('Custom_post_numbers','6'); ?>
+				<?php echo 'm'.get_theme_mod('Custom_post_numbers','6'); ?> s12 animation-element archive">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="card hoverable <?php echo( has_post_thumbnail() ? 'medium' : 'no-thumbnail' ); ?>">
 			<?php ?>
