@@ -59,7 +59,10 @@
 
 	<div id="content" class="site-content container">
 		<div class="row">
-			<?php seo_wp_breadcrumbs(); ?>
+			<?php if(!is_Home()){
+				seo_wp_breadcrumbs();
+				}
+			?>
 
 
 <script>
