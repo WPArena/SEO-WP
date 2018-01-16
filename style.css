@@ -4,7 +4,7 @@ Author: WPArena
 Author URI: https://wparena.com/about-us/
 Theme URI: https://wparena.com/
 Description: SEO WP is a free responsive WordPress Blog theme, based on Material Design. With the clean and simple interface, it can be used for any kind of blog website. Especially, SEO WP Theme is fully Search Engine Optimized. The theme is compatible with latest Google SEO recommendations. The Optimization techniques used in <a href="https://wparena.com/themes/seo-wp-theme/">SEO WP Theme</a> is meticulous and is done with great care. The title of the site, heading tag in single pages, archive pages are all done in accordance with Search Engines. The Theme is very much responsive, simple yet optimized for performance. The effects can make this theme super cool. Google loves SEO Friendly and Speedy Themes and we know that. That's why SEO WP is really fast and is completely optimized. We made this theme compatible with Jetpack Infinite Scroll. The theme also remove extra JetPack CSS files for further load time improvements. Let's try it and give your feedback to us by theme homepage link above.
-Version: 2.3.7
+Version: 2.3.8
 License: GNU General Public License v3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: seo-wp
@@ -508,13 +508,6 @@ nav .brand-logo {
     transform: translate3d(0px, 0px, 0px);
 }
 
-ul.sub-menu {
-    display: none;
-    position: absolute;
-}
-ul.sub-menu a{
-    white-space: nowrap;
-}
 
 i.material-icons {
     font-size: 21px;
@@ -572,17 +565,19 @@ nav.navigation.pagination{
 
 .navigation .nav-links a.prev{
     background-color: gray;
-    opacity: 0.7;
+    opacity: 0.8;
     float: left;
 	font-size: 20px;
+	line-height: 45px !important;
 	padding: 0px 20px !important;
 }
 
 .navigation .nav-links a.next{
     background-color: gray;
-    opacity: 0.7;
+    opacity: 0.8;
     float: right;
 	font-size: 20px;
+	line-height: 45px !important;
 	padding: 0px 20px !important;
 }
 
@@ -599,7 +594,7 @@ nav.navigation.pagination{
 }
 
 .pagination .nav-links .current{
-	background-color: #44c7fc;
+	background-color: #44c7fc !important;
 }
 
 
@@ -646,26 +641,63 @@ ol.children{
 
 /*Nav-bar Without Menu Selected*/
 
-ul.children{
+.page_item_has_children ul.children{
 	position: absolute;
 	z-index: 100;
 	display: none;
 }
 
-.page_item_has_children .children .page_item a{
-	white-space: nowrap;
-}
-
 li.page_item_has_children:hover ul.children{
-	display: block;
-	display: inline-grid;
-	animation: fadeIn .5s;
+    display: block;
+    display: inline-grid;
+    animation: fadeIn .5s;
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
       to { opacity: 1; }
 }
+
+.page_item_has_children ul.children .page_item_has_children ul.children{
+    position: absolute;
+    z-index: 100;
+    display: none;
+}
+
+.page_item_has_children ul.children .page_item_has_children:hover ul.children{
+    position: absolute;
+    z-index: 101;
+    display: block;
+    left: 100%;
+    top: 0;
+}
+
+/*.page_item_has_children .children .page_item a{
+	white-space: nowrap;
+}*/
+
+ul.primary-menu >  li.menu-item-has-children > ul.sub-menu{
+    left: 0;
+    top: 100%;
+}
+
+/*Nav-bar Menu Selected*/
+
+
+ul.sub-menu{
+    display: none;
+    position: absolute;
+    left:100%;
+    top:0;
+}
+
+
+ul.sub-menu a{
+   /* white-space: nowrap;*/
+   /*line-height: 25px;*/
+   /*font-size: 13px;*/
+}
+
 
 ul.children .page_item a:hover{
 	background-color: rgba(0,0,0,0.1);
@@ -721,3 +753,47 @@ img{
 	max-width: 100% !important;
 }
 
+/*Footbar widgets*/
+
+.site-footer{
+    padding-top: 50px;
+}
+
+
+.nav-links .prev-post:hover span,.nav-links .prev-post:hover .material-icons,
+.nav-links .next-post:hover span,.nav-links .next-post:hover .material-icons{
+    color: rgba(0,0,0,0.9) !important;
+    font-size: 700;
+    transition: 0.3s;
+}
+
+.nav-links .next-post span{
+    float: right;
+}
+
+.nav-links .hide-on-small-only{
+    float: left !important;
+}
+
+
+.related-posts h3{
+    margin-left: 10px;
+}
+
+
+a:hover{
+    font-weight: 600;
+    transition: 0.3s !important;
+}
+
+a,a span{  
+     transition: 0.3s !important;
+}
+
+.main-navigation .nav-wrapper a{
+    font-weight: inherit;
+}
+
+.card-content .entry-content p,.card-reveal p{
+    word-wrap: break-word;
+}
