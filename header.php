@@ -29,7 +29,7 @@
 			<div class="nav-wrapper container ">
 				
 				<?php seo_wp_logo(); ?>
-				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="mdi-navigation-menu"></i></a>
+				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="material-icons">menu</i></a>
 
 				<?php wp_nav_menu(
 					array(

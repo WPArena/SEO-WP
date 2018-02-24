@@ -98,6 +98,7 @@ function seowp_customize_register( $wp_customize ) {
 	$wp_customize->add_setting('Preloader_color', array(
 		'default' => '#1E88E5',
 		'transport' => 'refresh',
+		'sanitize_callback' => 'sanitize_hex_color'
 	));
 
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'preloader_color_control', array(
