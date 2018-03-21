@@ -29,7 +29,7 @@
 			<div class="nav-wrapper container ">
 				
 				<?php seo_wp_logo(); ?>
-				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="mdi-navigation-menu"></i></a>
+				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="material-icons">menu</i></a>
 
 				<?php wp_nav_menu(
 					array(
@@ -59,7 +59,10 @@
 
 	<div id="content" class="site-content container">
 		<div class="row">
-			<?php seo_wp_breadcrumbs(); ?>
+			<?php if(!is_Home()){
+				seo_wp_breadcrumbs();
+				}
+			?>
 
 
 <script>

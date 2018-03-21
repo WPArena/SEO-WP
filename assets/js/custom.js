@@ -16,6 +16,7 @@ jQuery(document).ready(function ($) {
         }
     }
 
+
     $('.side-nav').attr('id', 'side-primary-menu');
 
     // Sidenav
@@ -140,4 +141,45 @@ jQuery(document).ready(function ($) {
      * Materialize Select
      */
     $('select').material_select();
+
+///////////////////Check For Dark Colors
+
+    var c=$(".site-footer").css("background-color");
+
+    var hexDigits = new Array
+            ("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
+
+    //Function to convert rgb color to hex format
+    function rgb2hex(rgb) {
+     rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+     return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    }
+
+    function hex(x) {
+      return isNaN(x) ? "00" : hexDigits[(x - x % 16) / 16] + hexDigits[x % 16];
+     }
+
+    var d = rgb2hex(c);
+    var c = d.substring(1);      // strip #
+    var rgb = parseInt(c, 16);   // convert rrggbb to decimal
+    var r = (rgb >> 16) & 0xff;  // extract red
+    var g = (rgb >>  8) & 0xff;  // extract green
+    var b = (rgb >>  0) & 0xff;  // extract blue
+
+    var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+    if (luma < 40) {
+       $("form .select-wrapper span.caret").css("color","white");
+    }
+    else{
+        $("form .select-wrapper span.caret").css("color","black");
+    }
+
+///////////////////Check For Dark Colors END  //////////////////////////
+
+////////////////// If 1 Post IN A Row Then Featured Image/////////////////////
+    $( ".content-area .site-main div:has(.m12) img").css('height','100%') ;
+    $( ".content-area .site-main div:has(.m12) img").css('top','-150px') ;
+////////////////// If 1 Post IN A Row Then Featured Image END/////////////////////
+
 });
