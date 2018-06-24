@@ -21,7 +21,8 @@ get_header(); ?>
 						<?php get_search_form(); ?>
 					</div>
 					<div class="card-action">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php printf( __( 'Continue to %s', 'seo-wp' ), get_bloginfo( 'name' ) ); ?></a>
+						<?php /* translators: %s: web name */ ?>
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php printf( esc_html__( 'Continue to %s', 'seo-wp' ), esc_html( get_bloginfo( 'name' ) ) ); ?></a>
 					</div>
 				</div>
 			</div>

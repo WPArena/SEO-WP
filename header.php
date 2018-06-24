@@ -12,8 +12,6 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
 	<?php wp_head(); ?>
 
 </head>
@@ -21,12 +19,11 @@
 <body <?php body_class(); ?>>
 <!-- Show Preloading Bar -->	
 <?php seo_wp_preloader(); ?>
-
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header row" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 
-			<div class="nav-wrapper container ">
+			<div class="nav-wrapper container">
 				
 				<?php seo_wp_logo(); ?>
 				<a href="#" data-activates="side-primary-menu" class="button-collapse tooltip"><i class="material-icons">menu</i></a>
@@ -63,7 +60,6 @@
 				seo_wp_breadcrumbs();
 				}
 			?>
-
 
 <script>
 jQuery(document).ready(function(){

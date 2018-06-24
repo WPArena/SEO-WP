@@ -4,306 +4,354 @@ msgid ""
 msgstr ""
 "Project-Id-Version: _s 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2015-06-12 21:51:31+0000\n"
+"POT-Creation-Date: 2018-06-24 16:06+0500\n"
 "POT-Revision-Date: Tue Mar 29 2016 10:35:32 GMT+0700 (SE Asia Standard Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: ..\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: 404.php:15
+#: ../404.php:17
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:19
+#: ../404.php:19
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
+"aside or a search below?"
 msgstr ""
 
-#: 404.php:27
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-#: 404.php:44
+#: ../404.php:25
 #, php-format
-msgid "Try looking in the monthly archives. %1$s"
+msgid "Continue to %s"
 msgstr ""
 
-#: comments.php:29
+#: ../assets/js/materialize.js:232
+msgid "translateX"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "translateY"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "skewX"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "skewY"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "scale"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "scaleX"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "scaleY"
+msgstr ""
+
+#: ../assets/js/materialize.js:232
+msgid "rotateZ"
+msgstr ""
+
+#: ../comments.php:31
 #, php-format
 msgctxt "comments title"
-msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid "One thought on &ldquo;%s&rdquo;"
+msgstr ""
+
+#: ../comments.php:36
+#, php-format
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:38
-#: comments.php:59
+#: ../comments.php:51 ../comments.php:77
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:41
-#: comments.php:62
+#: ../comments.php:55 ../comments.php:81
 msgid "Older Comments"
 msgstr ""
 
-#: comments.php:42
-#: comments.php:63
+#: ../comments.php:56 ../comments.php:82
 msgid "Newer Comments"
 msgstr ""
 
-#: comments.php:75
+#: ../comments.php:95
 msgid "Comments are closed."
 msgstr ""
 
-#: footer.php:16
-msgid "http://wordpress.org/"
+#: ../comments.php:107
+msgid "Comment"
 msgstr ""
 
-#: footer.php:16
-#, php-format
-msgid "Proudly powered by %s"
+#: ../comments.php:115
+msgid "Name"
 msgstr ""
 
-#: footer.php:18
-#, php-format
-msgid "Theme: %1$s by %2$s."
+#: ../comments.php:123
+msgid "Wrong email address"
 msgstr ""
 
-#: functions.php:45
-#: header.php:32
+#: ../comments.php:123
+msgid "Seems to be a valid email address"
+msgstr ""
+
+#: ../comments.php:123
+msgid "Email"
+msgstr ""
+
+#: ../comments.php:131
+msgid "Website"
+msgstr ""
+
+#: ../footer.php:40
+msgid " Powered by "
+msgstr ""
+
+#: ../footer.php:47
+msgid "Y"
+msgstr ""
+
+#: ../footer.php:47
+msgid "Powered by"
+msgstr ""
+
+#: ../functions.php:53
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:100
+#: ../functions.php:128
 msgid "Sidebar"
 msgstr ""
 
-#: header.php:23
-msgid "Skip to content"
+#: ../functions.php:139
+msgid "Footer 1"
 msgstr ""
 
-#: inc/extras.php:52
-#, php-format
-msgid "Page %s"
+#: ../functions.php:150
+msgid "Footer 2"
 msgstr ""
 
-#: inc/template-tags.php:23
-msgid "Posts navigation"
+#: ../functions.php:161
+msgid "Footer 3"
 msgstr ""
 
-#: inc/template-tags.php:27
-msgid "Older posts"
+#: ../inc/customizer.php:18
+msgid "Copyright Options"
 msgstr ""
 
-#: inc/template-tags.php:31
-msgid "Newer posts"
+#: ../inc/customizer.php:26
+msgid "Copyright: "
 msgstr ""
 
-#: inc/template-tags.php:56
-msgid "Post navigation"
+#: ../inc/customizer.php:82
+msgid "PreLoader Color"
 msgstr ""
 
-#: inc/template-tags.php:86
+#: ../inc/customizer.php:93
+msgid "Progress Bar Color"
+msgstr ""
+
+#: ../inc/customizer.php:105
+msgid "Progressbar Inner Color"
+msgstr ""
+
+#: ../inc/customizer.php:127
+msgid "Post Numbers To Show In 1 Line"
+msgstr ""
+
+#: ../inc/customizer.php:137
+msgid "Number Of Posts To Show"
+msgstr ""
+
+#: ../inc/customizer.php:152
+msgid "Site Colors"
+msgstr ""
+
+#: ../inc/customizer.php:157
+msgid "Header Color"
+msgstr ""
+
+#: ../inc/customizer.php:164
+msgid "Footer Color"
+msgstr ""
+
+#: ../inc/customizer.php:171
+msgid "Card Header Color"
+msgstr ""
+
+#: ../inc/customizer.php:180
+msgid "Link Color"
+msgstr ""
+
+#: ../inc/customizer.php:186
+msgid "Button Color"
+msgstr ""
+
+#: ../inc/customizer.php:192
+msgid "Button Hover Color"
+msgstr ""
+
+#: ../inc/template-tags.php:29 ../inc/template-tags.php:66
 #, php-format
 msgctxt "post date"
-msgid "Posted on %s"
+msgid " %s"
 msgstr ""
 
-#: inc/template-tags.php:91
+#: ../inc/template-tags.php:37 ../inc/template-tags.php:74
 #, php-format
 msgctxt "post author"
-msgid "by %s"
+msgid " %s"
 msgstr ""
 
-#. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:108
-#: inc/template-tags.php:114
+#: ../inc/template-tags.php:94 ../inc/template-tags.php:105
+#: ../template-parts/content.php:57
 msgid ", "
 msgstr ""
 
-#: inc/template-tags.php:110
+#: ../inc/template-tags.php:98 ../template-parts/content.php:62
 #, php-format
 msgid "Posted in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:116
+#: ../inc/template-tags.php:108
 #, php-format
-msgid "Tagged %1$s"
+msgid "Tagged in %1$s"
 msgstr ""
 
-#: inc/template-tags.php:122
+#: ../inc/template-tags.php:114
 msgid "Leave a comment"
 msgstr ""
 
-#: inc/template-tags.php:122
+#: ../inc/template-tags.php:114
 msgid "1 Comment"
 msgstr ""
 
-#: inc/template-tags.php:122
-#, c-format
+#: ../inc/template-tags.php:114
 msgid "% Comments"
 msgstr ""
 
-#: inc/template-tags.php:126
-#: template-parts/content-page.php:26
+#: ../inc/template-tags.php:118 ../template-parts/content-page.php:31
 msgid "Edit"
 msgstr ""
 
-#: inc/template-tags.php:143
-#, php-format
-msgid "Category: %s"
+#: ../inc/template-tags.php:306
+msgid "Related"
 msgstr ""
 
-#: inc/template-tags.php:145
-#, php-format
-msgid "Tag: %s"
+#: ../inc/template-tags.php:339
+msgid "Home"
 msgstr ""
 
-#: inc/template-tags.php:147
-#, php-format
-msgid "Author: %s"
-msgstr ""
-
-#: inc/template-tags.php:149
-#, php-format
-msgid "Year: %s"
-msgstr ""
-
-#: inc/template-tags.php:149
-msgctxt "yearly archives date format"
-msgid "Y"
-msgstr ""
-
-#: inc/template-tags.php:151
-#, php-format
-msgid "Month: %s"
-msgstr ""
-
-#: inc/template-tags.php:151
-msgctxt "monthly archives date format"
-msgid "F Y"
-msgstr ""
-
-#: inc/template-tags.php:153
-#, php-format
-msgid "Day: %s"
-msgstr ""
-
-#: inc/template-tags.php:153
-msgctxt "daily archives date format"
-msgid "F j, Y"
-msgstr ""
-
-#: inc/template-tags.php:156
-msgctxt "post format archive title"
-msgid "Asides"
-msgstr ""
-
-#: inc/template-tags.php:158
-msgctxt "post format archive title"
-msgid "Galleries"
-msgstr ""
-
-#: inc/template-tags.php:160
-msgctxt "post format archive title"
-msgid "Images"
-msgstr ""
-
-#: inc/template-tags.php:162
-msgctxt "post format archive title"
-msgid "Videos"
-msgstr ""
-
-#: inc/template-tags.php:164
-msgctxt "post format archive title"
-msgid "Quotes"
-msgstr ""
-
-#: inc/template-tags.php:166
-msgctxt "post format archive title"
-msgid "Links"
-msgstr ""
-
-#: inc/template-tags.php:168
-msgctxt "post format archive title"
-msgid "Statuses"
-msgstr ""
-
-#: inc/template-tags.php:170
-msgctxt "post format archive title"
-msgid "Audio"
-msgstr ""
-
-#: inc/template-tags.php:172
-msgctxt "post format archive title"
-msgid "Chats"
-msgstr ""
-
-#: inc/template-tags.php:175
-#, php-format
-msgid "Archives: %s"
-msgstr ""
-
-#. translators: 1: Taxonomy singular name, 2: Current taxonomy term
-#: inc/template-tags.php:179
-#, php-format
-msgid "%1$s: %2$s"
-msgstr ""
-
-#: inc/template-tags.php:181
+#: ../inc/template-tags.php:416 ../inc/template-tags.php:420
+#: ../inc/template-tags.php:424 ../inc/template-tags.php:431
+#: ../inc/template-tags.php:435 ../inc/template-tags.php:440
 msgid "Archives"
 msgstr ""
 
-#: search.php:16
+#: ../inc/template-tags.php:451
+msgid "Author"
+msgstr ""
+
+#: ../inc/template-tags.php:456
+msgid "Page"
+msgstr ""
+
+#: ../inc/template-tags.php:461
+msgid "Search results for:"
+msgstr ""
+
+#: ../inc/template-tags.php:466
+msgid "404 Page"
+msgstr ""
+
+#: ../inc/template-tags.php:520 ../inc/template-tags.php:521
+msgid "PREVIOUS POST"
+msgstr ""
+
+#: ../inc/template-tags.php:539 ../inc/template-tags.php:544
+msgid "NEXT POST"
+msgstr ""
+
+#: ../inc/widgets/seo-wp-tabs.php:20
+msgid "[SEO WP] Tabs"
+msgstr ""
+
+#: ../inc/widgets/seo-wp-tabs.php:21
+msgid "Display a tabs with recent posts, recent comments"
+msgstr ""
+
+#: ../inc/widgets/seo-wp-tabs.php:41
+msgid "Recent Posts"
+msgstr ""
+
+#: ../inc/widgets/seo-wp-tabs.php:42
+msgid "Comments"
+msgstr ""
+
+#: ../inc/widgets/seo-wp-tabs.php:56
+msgid "on"
+msgstr ""
+
+#: ../search.php:17
 #, php-format
 msgid "Search Results for: %s"
 msgstr ""
 
-#: template-parts/content-none.php:14
+#: ../searchform.php:3
+msgid "Search for:"
+msgstr ""
+
+#: ../searchform.php:5
+msgid "Search"
+msgstr ""
+
+#: ../template-parts/content-none.php:15
 msgid "Nothing Found"
 msgstr ""
 
-#: template-parts/content-none.php:20
+#: ../template-parts/content-none.php:22
 #, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:24
+#: ../template-parts/content-none.php:26
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:29
+#: ../template-parts/content-none.php:31
 msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching "
+"can help."
 msgstr ""
 
-#: template-parts/content-page.php:19
-#: template-parts/content-single.php:23
-#: template-parts/content.php:32
+#: ../template-parts/content-page.php:22 ../template-parts/content-single.php:21
+#: ../template-parts/content.php:32
 msgid "Pages:"
 msgstr ""
 
-#. translators: %s: Name of current post
-#: template-parts/content.php:25
-#, php-format
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+#: ../template-parts/content.php:50
+msgid "Read more"
 msgstr ""

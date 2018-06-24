@@ -67,6 +67,11 @@ if ( ! function_exists( 'seo_wp_setup' ) ) :
 				'caption',
 			)
 		);
+		/*Add Support for background-color and background image*/ 
+		add_theme_support( 'custom-background');
+
+		/*Add Support for header-image*/ 
+		add_theme_support( "custom-header");
 
 		/*
 		 * Enable support for Post Formats.
@@ -181,9 +186,9 @@ function seo_wp_scripts() {
 
 	wp_enqueue_script( 'seo_wp-materialize-js', get_template_directory_uri() . '/assets/js/materialize.min.js', array( 'jquery' ), '0.97.5', true );
 	
-	wp_enqueue_script( 'seo_wp-animations-js', get_template_directory_uri() . '/assets/js/animations.js', array( 'jquery' ), '0.97.5' 	, true );
+	wp_enqueue_script( 'seo_wp-animations-js', get_template_directory_uri() . '/assets/js/seowp-animations.js', array( 'jquery' ), '0.97.5' 	, true );
 
-	wp_enqueue_script( 'seo_wp-custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(
+	wp_enqueue_script( 'seo_wp-custom-js', get_template_directory_uri() . '/assets/js/seowp-custom.js', array(
 		'jquery',
 		'seo_wp-materialize-js'
 	), SEO_WP_THEME_VERSION, true );
@@ -198,11 +203,6 @@ function seo_wp_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'seo_wp_scripts' );
-
-
-
-
-
 
 /**
  * Implement the Custom Header feature.
@@ -239,10 +239,21 @@ require get_template_directory() . '/inc/widgets.php';
  */
 require get_template_directory() . '/inc/custom-functions.php';
 
-add_theme_support( 'custom-background');
-add_theme_support( "custom-header");
-
-function wpdocs_custom_excerpt_length( $length ) {
+function seo_wp_excerpt_length( $length ) {
+	if(is_admin()){
+		return $length;
+	}
     return 35;
 }
-add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+add_filter( 'excerpt_length', 'seo_wp_excerpt_length', 999 );
+
+/**
+* Add a pingback url auto-discovery header for singularly identifiable articles.
+*/
+function seo_wp_pingback_header() {
+    if ( is_singular() && pings_open() ) {
+        printf( '<link rel="pingback" href="%s">' . "\n", esc_url(get_bloginfo( 'pingback_url' ) ) );
+    }
+}
+
+add_action( 'wp_head', 'seo_wp_pingback_header' );

@@ -23,12 +23,16 @@ if ( ! function_exists( 'seo_wp_posted_on' ) ) : /**
 		);
 
 		$posted_on_icon = '<i class="material-icons col">event_note</i>';
+		
+		// translators: %s: for date
 		$posted_on      = $posted_on_icon . sprintf(
 				esc_html_x( ' %s', 'post date', 'seo-wp' ),
 				$time_string
 			);
 
 		$byline_icon = '<i class="material-icons col">account_box</i>';
+		
+		// translators: %s: for author
 		$byline      = $byline_icon . sprintf(
 				esc_html_x( ' %s', 'post author', 'seo-wp' ),
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
@@ -56,19 +60,23 @@ if ( ! function_exists( 'seo_wp_posted_on_raw' ) ) : /**
 		);
 
 		$posted_on_icon = '<i class="material-icons col">event_note</i>';
+		
+		/* translators: %s: getting post date */
 		$posted_on      = $posted_on_icon . sprintf(
 				esc_html_x( ' %s', 'post date', 'seo-wp' ),
 				$time_string
 			);
 
 		$byline_icon = '<i class="material-icons col">account_box</i>';
+		
+		/* translators: %s: getting author name and url */
 		$byline      = $byline_icon . sprintf(
 				esc_html_x( ' %s', 'post author', 'seo-wp' ),
 				'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 			);
 
-		echo '<span class="posted-on posted">' . $posted_on . '</span>';
-		echo '<p style="display:inline-block;margin:10px;">' . $byline . '</p>';
+		echo '<span class="posted-on posted">' . wp_kses_post($posted_on) . '</span>';
+		echo '<p style="display:inline-block;margin:10px;">' . wp_kses_post($byline) . '</p>';
 
 		 // WPCS: XSS OK.
 
@@ -85,6 +93,8 @@ if ( ! function_exists( 'seo_wp_entry_footer' ) ) : /**
 			/* translators: used between list items, there is a space after the comma */
 			$categories_list = get_the_category_list( esc_html__( ', ', 'seo-wp' ) );
 			if ( $categories_list && seo_wp_categorized_blog() ) {
+
+			/* translators: %s: For Category list */
 				printf( '<i style="position:absolute;margin-top:15px;" class="material-icons">local_offer</i><p style="margin-left:25px;" class="cat-links"> ' . esc_html__( 'Posted in %1$s', 'seo-wp' ) . '</p>', $categories_list ); // WPCS: XSS OK.
 			}
 
@@ -94,6 +104,7 @@ if ( ! function_exists( 'seo_wp_entry_footer' ) ) : /**
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html__( ', ', 'seo-wp' ) );
 			if ( $tags_list ) {
+				/* translators: %s: For Tag list */
 				printf( '<br><i style="position:absolute;margin-top:16px;" class="material-icons">local_offer</i> <p style="margin-left:25px;" class="tags-links">' . esc_html__( 'Tagged in %1$s', 'seo-wp' ) . '</p>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
@@ -292,18 +303,18 @@ function seo_wp_related_posts() {
 		$col = 'm' . ( 12 / $col );
 
 		echo '<div class="related-posts row">';
-		echo '<h3>' . __( 'Related', 'seo-wp' ) . '</h3>';
+		echo '<h3>' . esc_html__( 'Related', 'seo-wp' ) . '</h3>';
 		while ( $my_query->have_posts() ) {
 			$my_query->the_post();
 			?>
-			<div class="col <?php echo $col; ?> s12">
+			<div class="col <?php echo esc_attr($col); ?> s12">
 				<div class="related-thumbnail">
 					<a href="<?php echo esc_url( get_the_permalink() ); ?>" title="<?php esc_attr( the_title() ); ?>">
 						<?php the_post_thumbnail( 'thumbnail', [ 'class' => 'hoverable' ] ) ?>
 					</a>
 				</div>
 				<div class="related-title">
-					<a href="<?php echo get_the_permalink(); ?>"><?php echo get_the_title(); ?></a>
+					<a href="<?php echo esc_url(get_the_permalink()); ?>"><?php echo get_the_title(); ?></a>
 				</div>
 			</div>
 			<?php
@@ -334,24 +345,24 @@ function seo_wp_breadcrumbs() {
 	// Div container
 	echo '<div class="breadcrumbs-container col s12">';
 	// Build the breadcrums
-	echo '<ul itemscope itemtype="http://schema.org/BreadcrumbList" id="' . $id . '" class="' . $class . '">';
+	echo '<ul itemscope itemtype="http://schema.org/BreadcrumbList" id="' . esc_attr($id) . '" class="' . esc_attr($class) . '">';
 
 
 	// Home page
-	echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-home breadcrumb"><a itemprop="item" class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . $home_title . '"><i style="margin-top:-2px;" class="material-icons">home</i></a></li>';
+	echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-home breadcrumb"><a itemprop="item" class="bread-link bread-home" href="' . esc_url( get_home_url() ) . '" title="' . esc_attr($home_title) . '"><i style="margin-top:-2px;" class="material-icons">home</i></a></li>';
 	echo '<li class="separator separator-home material-icons">chevron_right</li>';
 
 	if ( is_single() ) {
 
 		// Single post (Only display the first category)
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-cat item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><a itemprop="item" class="bread-cat bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '" href="' . get_category_link( $category[0]->term_id ) . '" title="' . $category[0]->cat_name . '"><span itemprop="name">' . $category[0]->cat_name . '</span></a></li>';
-		echo '<li class="separator separator-' . $category[0]->term_id . ' material-icons">chevron_right</li>';
-		echo '<li style="margin-top: 1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" class="bread-current bread-' . $post->ID . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-cat item-cat-' . esc_attr($category[0]->term_id) . ' item-cat-' . esc_attr($category[0]->category_nicename) . '"><a itemprop="item" class="bread-cat bread-cat-' . esc_attr($category[0]->term_id) . ' bread-cat-' . esc_attr($category[0]->category_nicename) . '" href="' . esc_url(get_category_link( $category[0]->term_id )) . '" title="' . esc_attr($category[0]->cat_name) . '"><span itemprop="name">' . esc_html($category[0]->cat_name) . '</span></a></li>';
+		echo '<li class="separator separator-' . esc_attr($category[0]->term_id) . ' material-icons">chevron_right</li>';
+		echo '<li style="margin-top: 1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . esc_attr($post->ID) . '"><strong itemprop="name" class="bread-current bread-' . esc_attr($post->ID) . '" title="' . get_the_title() . '">' . get_the_title() . '</strong></li>';
 
 	} else if ( is_category() ) {
 
 		// Category page
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-cat-' . $category[0]->term_id . ' item-cat-' . $category[0]->category_nicename . '"><strong itemprop="name" class="bread-current bread-cat-' . $category[0]->term_id . ' bread-cat-' . $category[0]->category_nicename . '">' . $category[0]->cat_name . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-cat-' . esc_attr($category[0]->term_id) . ' item-cat-' . esc_attr($category[0]->category_nicename) . '"><strong itemprop="name" class="bread-current bread-cat-' . esc_attr($category[0]->term_id) . ' bread-cat-' . esc_attr($category[0]->category_nicename) . '">' . esc_html($category[0]->cat_name) . '</strong></li>';
 
 	} else if ( is_page() ) {
 
@@ -372,15 +383,15 @@ function seo_wp_breadcrumbs() {
 			}
 
 			// Display parent pages
-			echo $parents;
+			echo wp_kses_post($parents);
 
 			// Current page
-			echo '<li style="margin-top:1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
+			echo '<li style="margin-top:1px;" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . esc_attr($post->ID) . '"><strong itemprop="name" title="' . get_the_title() . '"> ' . get_the_title() . '</strong></li>';
 
 		} else {
 
 			// Just display current page if not parents
-			echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . $post->ID . '"><strong itemprop="name" class="bread-current bread-' . $post->ID . '"> ' . get_the_title() . '</strong></li>';
+			echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . esc_attr($post->ID) . '"><strong itemprop="name" class="bread-current bread-' . esc_attr($post->ID) . '"> ' . get_the_title() . '</strong></li>';
 
 		}
 
@@ -395,38 +406,38 @@ function seo_wp_breadcrumbs() {
 		$terms    = get_terms( $taxonomy, $args );
 
 		// Display the tag name
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-tag-' . $terms[0]->term_id . ' item-tag-' . $terms[0]->slug . '"><strong itemprop="name" class="bread-current bread-tag-' . $terms[0]->term_id . ' bread-tag-' . $terms[0]->slug . '">' . $terms[0]->name . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-tag-' . esc_attr($terms[0]->term_id) . ' item-tag-' . esc_attr($terms[0]->slug) . '"><strong itemprop="name" class="bread-current bread-tag-' . esc_attr($terms[0]->term_id) . ' bread-tag-' . esc_attr($terms[0]->slug) . '">' . esc_html($terms[0]->name) . '</strong></li>';
 
 	} elseif ( is_day() ) {
 
 		// Day archive
 
 		// Year link
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-year item-year-' . get_the_time( 'Y' ) . '"><a itemprop="item" class="bread-year bread-year-' . get_the_time( 'Y' ) . '" href="' . get_year_link( get_the_time( 'Y' ) ) . '" title="' . get_the_time( 'Y' ) . '"><span itemprop="name">' . get_the_time( 'Y' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</span></a></li>';
-		echo '<li class="separator separator-' . get_the_time( 'Y' ) . ' mdi-navigation-chevron-right"></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-year item-year-' . esc_attr(get_the_time( 'Y' )) . '"><a itemprop="item" class="bread-year bread-year-' . esc_attr(get_the_time( 'Y' )) . '" href="' . esc_url(get_year_link( get_the_time( 'Y' ) ) ) . '" title="' . esc_attr(get_the_time( 'Y' )) . '"><span itemprop="name">' . esc_html(get_the_time( 'Y' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</span></a></li>';
+		echo '<li class="separator separator-' . esc_attr(get_the_time( 'Y' )) . ' material-icons">chevron_right</li>';
 
 		// Month link
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-month item-month-' . get_the_time( 'm' ) . '"><a itemprop="item" class="bread-month bread-month-' . get_the_time( 'm' ) . '" href="' . get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) ) . '" title="' . get_the_time( 'M' ) . '"><span itemprop="name">' . get_the_time( 'M' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</span></a></li>';
-		echo '<li class="separator separator-' . get_the_time( 'm' ) . ' mdi-navigation-chevron-right"></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-month item-month-' . esc_attr(get_the_time( 'm' )) . '"><a itemprop="item" class="bread-month bread-month-' . esc_attr(get_the_time( 'm' )) . '" href="' . esc_url(get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) )) . '" title="' . esc_attr(get_the_time( 'M' )) . '"><span itemprop="name">' . esc_html(get_the_time( 'M' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</span></a></li>';
+		echo '<li class="separator separator-' . esc_attr(get_the_time( 'm' )) . ' material-icons">chevron_right</li>';
 
 		// Day display
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . get_the_time( 'j' ) . '"><strong itemprop="name" class="bread-current bread-' . get_the_time( 'j' ) . '"> ' . get_the_time( 'jS' ) . ' ' . get_the_time( 'M' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-' . esc_attr(get_the_time( 'j' )) . '"><strong itemprop="name" class="bread-current bread-' . esc_attr(get_the_time( 'j' )) . '"> ' . esc_html(get_the_time( 'jS' )) . ' ' . esc_html(get_the_time( 'M' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</strong></li>';
 
 	} else if ( is_month() ) {
 
 		// Month Archive
 
 		// Year link
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-year item-year-' . get_the_time( 'Y' ) . '"><a itemprop="item" class="bread-year bread-year-' . get_the_time( 'Y' ) . '" href="' . get_year_link( get_the_time( 'Y' ) ) . '" title="' . get_the_time( 'Y' ) . '"><span itemprop="name">' . get_the_time( 'Y' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</span></a></li>';
-		echo '<li class="separator separator-' . get_the_time( 'Y' ) . ' mdi-navigation-chevron-right"></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-year item-year-' . esc_attr(get_the_time( 'Y' )) . '"><a itemprop="item" class="bread-year bread-year-' . esc_attr(get_the_time( 'Y' )) . '" href="' . esc_url(get_year_link( get_the_time( 'Y' ) ) ) . '" title="' . esc_attr(get_the_time( 'Y' )) . '"><span itemprop="name">' . esc_html(get_the_time( 'Y' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</span></a></li>';
+		echo '<li class="separator separator-' . esc_attr(get_the_time( 'Y' )) . ' material-icons">chevron_right</li>';
 
 		// Month display
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-month item-month-' . get_the_time( 'm' ) . '"><strong itemprop="name" class="bread-month bread-month-' . get_the_time( 'm' ) . '" title="' . get_the_time( 'M' ) . '">' . get_the_time( 'M' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-month item-month-' . esc_attr(get_the_time( 'm' )) . '"><strong itemprop="name" class="bread-month bread-month-' . esc_attr(get_the_time( 'm' )) . '" title="' . esc_attr(get_the_time( 'M' )) . '">' .esc_html(get_the_time( 'M' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</strong></li>';
 
 	} else if ( is_year() ) {
 
 		// Display year archive
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . get_the_time( 'Y' ) . '"><strong itemprop="name" class="bread-current bread-current-' . get_the_time( 'Y' ) . '" title="' . get_the_time( 'Y' ) . '">' . get_the_time( 'Y' ) . ' ' . __( 'Archives', 'seo-wp' ) . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . esc_attr(get_the_time( 'Y' )) . '"><strong itemprop="name" class="bread-current bread-current-' . esc_attr(get_the_time( 'Y' )) . '" title="' . esc_attr(get_the_time( 'Y' )) . '">' . esc_html(get_the_time( 'Y' )) . ' ' . esc_html__( 'Archives', 'seo-wp' ) . '</strong></li>';
 
 	} else if ( is_author() ) {
 
@@ -437,22 +448,22 @@ function seo_wp_breadcrumbs() {
 		$userdata = get_userdata( $author );
 
 		// Display author name
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . $userdata->user_nicename . '"><strong itemprop="name" class="bread-current bread-current-' . $userdata->user_nicename . '" title="' . $userdata->display_name . '">' . __( 'Author', 'seo-wp' ) . ' ' . $userdata->display_name . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . esc_attr($userdata->user_nicename) . '"><strong itemprop="name" class="bread-current bread-current-' . esc_attr($userdata->user_nicename) . '" title="' . esc_attr($userdata->display_name) . '">' . esc_html__( 'Author', 'seo-wp' ) . ' ' . esc_html($userdata->display_name) . '</strong></li>';
 
 	} else if ( get_query_var( 'paged' ) ) {
 
 		// Paginated archives
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . get_query_var( 'paged' ) . '"><strong itemprop="name" class="bread-current bread-current-' . get_query_var( 'paged' ) . '" title="' . __( 'Page', 'seo-wp' ) . ' ' . get_query_var( 'paged' ) . '">' . __( 'Page', 'seo-wp' ) . ' ' . get_query_var( 'paged' ) . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . esc_attr(get_query_var( 'paged' )) . '"><strong itemprop="name" class="bread-current bread-current-' . esc_attr(get_query_var( 'paged' )) . '" title="' . esc_attr__( 'Page', 'seo-wp' ) . ' ' . esc_attr(get_query_var( 'paged' )) . '">' . esc_html__( 'Page', 'seo-wp' ) . ' ' . esc_html(get_query_var( 'paged' )) . '</strong></li>';
 
 	} else if ( is_search() ) {
 
 		// Search results page
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . get_search_query() . '"><strong itemprop="name" class="bread-current bread-current-' . get_search_query() . '" title="' . __( 'Search results for:', 'seo-wp' ) . ' ' . get_search_query() . '">' . __( 'Search results for:', 'seo-wp' ) . ' ' . get_search_query() . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="item-current item-current-' . esc_attr(get_search_query()) . '"><strong itemprop="name" class="bread-current bread-current-' . esc_attr(get_search_query()) . '" title="' . esc_attr__( 'Search results for:', 'seo-wp' ) . ' ' . esc_attr(get_search_query()) . '">' . esc_html__( 'Search results for:', 'seo-wp' ) . ' ' . esc_html(get_search_query()) . '</strong></li>';
 
 	} elseif ( is_404() ) {
 
 		// 404 page
-		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><strong itemprop="name">' . __( '404 Page', 'seo-wp' ) . '</strong></li>';
+		echo '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><strong itemprop="name">' . esc_html__( '404 Page', 'seo-wp' ) . '</strong></li>';
 	}
 
 	echo '</ul>';
@@ -506,8 +517,8 @@ function seo_post_navigation() {
 		<div class="col m6 prev-post" style="padding-left: 22px;">
 		<a class="" href="<?php echo esc_url(get_permalink( $next_post->ID )); ?>">
 			<?php echo '<i class="material-icons col">arrow_back</i>'; ?>
-			<span class="next-prev-text"><?php _e('PREVIOUS POST','seo-wp'); ?></span>
-			<br><?php echo '<i style=" visibility:hidden;" class="material-icons col">arrow_back</i>'; ?><span class="hide-on-small-only"><?php if(get_the_title( $next_post->ID ) != ''){echo get_the_title( $next_post->ID );} else {  _e('PREVIOUS POST','seo-wp'); }?></span></a>
+			<span class="next-prev-text"><?php esc_html_e('PREVIOUS POST','seo-wp'); ?></span>
+			<br><?php echo '<i style=" visibility:hidden;" class="material-icons col">arrow_back</i>'; ?><span class="hide-on-small-only"><?php if(get_the_title( $next_post->ID ) != ''){echo get_the_title( $next_post->ID );} else {  esc_html_e('PREVIOUS POST','seo-wp'); }?></span></a>
 		</div>
 		<?php } 
 		 else { 
@@ -525,12 +536,12 @@ function seo_post_navigation() {
 			<div class="col m6 next-post" style="padding-right: 25px;">
 				<a style='float: right;' href="<?php echo esc_url(get_permalink( $prev_post->ID )); ?>">
 					<span class="next-prev-text">
-						<?php _e('NEXT POST','seo-wp'); ?>
+						<?php esc_html_e('NEXT POST','seo-wp'); ?>
 						<?php echo '<i class="material-icons right">arrow_forward</i>'; ?>
 					</span>
 					<br>
 					<span class="hide-on-small-only">
-						<?php if(get_the_title( $prev_post->ID ) != ''){echo get_the_title( $prev_post->ID );} else { _e('NEXT POST','seo-wp'); }?>
+						<?php if(get_the_title( $prev_post->ID ) != ''){echo get_the_title( $prev_post->ID );} else { esc_html_e('NEXT POST','seo-wp'); }?>
 							
 					</span>
 				</a>

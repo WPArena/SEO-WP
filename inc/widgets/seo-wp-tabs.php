@@ -38,23 +38,23 @@ if ( ! class_exists( 'SEO_WP_Tabs_Widget' ) ):
 					<div class="col s12">
 						<ul class="tabs">
 							<li class="tab col s6">
-								<a class="active" href="#recent-posts"><?php _e( 'Recent Posts', 'seo-wp' ); ?></a></li>
-							<li class="tab col s6"><a href="#recent-comments"><?php _e( 'Comments', 'seo-wp' ); ?></a>
+								<a class="active" href="#recent-posts"><?php esc_html_e( 'Recent Posts', 'seo-wp' ); ?></a></li>
+							<li class="tab col s6"><a href="#recent-comments"><?php esc_html_e( 'Comments', 'seo-wp' ); ?></a>
 							</li>
 						</ul>
 					</div>
 					<div id="recent-posts" class="col s12">
 						<div class="collection">
 							<?php foreach ( $recent_posts as $recent_post ) : ?>
-								<a href="<?php echo get_permalink( $recent_post['ID'] ); ?>" class="collection-item"><?php echo $recent_post['post_title'] ?></a>
+								<a href="<?php echo esc_url(get_permalink( $recent_post['ID'] )); ?>" class="collection-item"><?php echo esc_html($recent_post['post_title']); ?></a>
 							<?php endforeach; ?>
 						</div>
 					</div>
 					<div id="recent-comments" class="col s12">
 						<div class="collection">
 							<?php foreach ( $comments as $comment ) : ?>
-								<span><?php echo $comment->comment_author . ' ' . __( 'on', 'seo-wp' ); ?></span>
-								<a href="<?php echo get_permalink( $comment->comment_post_ID ); ?>" class="collection-item"><?php echo get_the_title( $comment->comment_post_ID ); ?></a>
+								<span><?php echo esc_html($comment->comment_author) . ' ' . esc_html__( 'on', 'seo-wp' ); ?></span>
+								<a href="<?php echo esc_url(get_permalink( $comment->comment_post_ID )); ?>" class="collection-item"><?php echo get_the_title( $comment->comment_post_ID ); ?></a>
 							<?php endforeach; ?>
 						</div>
 					</div>

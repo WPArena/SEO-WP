@@ -31,16 +31,20 @@
 	<?php endif; ?>
 	<div class="site-info footer-copyright">
 		<div class="container">
+		<?php $wordpress_uri = 'https://wordpress.org/';?>
+
 		<?php if(get_theme_mod('copyright')) { 
-					
-					echo get_theme_mod('copyright');
-					
+					$get_copyright_text = esc_html(get_theme_mod('copyright'));
+					echo "&copy".esc_html(date("o"))." ";
+					echo esc_html($get_copyright_text);
+					echo esc_html__(' Powered by ', 'seo-wp');
+					echo '<a href="'. esc_url($wordpress_uri).'"target="_blank">WordPress.</a>';
+
 		} else { 
-						$wordpress_uri = 'https://wordpress.org/';
 						$author_uri = 'https://wparena.com/';
 				?>
 
-				&copy; <?php echo date("o"); ?> <a href="<?php echo home_url(); ?>"><?php echo get_bloginfo('name'); ?></a> - Theme By <a href="<?php echo $author_uri; ?>" target="_blank">WPArena</a> . <?php echo __('Powered by', 'seo-wp'); ?> <a href="<?php echo $wordpress_uri; ?>" target="_blank">WordPress.</a>
+				&copy; <?php echo esc_html(date_i18n( __( 'Y', 'seo-wp' ) ) ); ?> <a href="<?php echo esc_url(home_url()); ?>"><?php echo esc_html(get_bloginfo('name')); ?></a> - Theme By <a href="<?php echo esc_url($author_uri); ?>" target="_blank">WPArena</a> . <?php echo esc_html__('Powered by', 'seo-wp'); ?> <a href="<?php echo esc_url($wordpress_uri); ?>" target="_blank">WordPress.</a>
 
 			<?php } ?>
 

@@ -33,7 +33,7 @@ if ( ! function_exists( 'seo_wp_custom_header_image' ) ) {
 			return;
 		}
 
-		echo '<img src="' . get_header_image() . '" height="' . $header_image->height . '" width="' . $header_image->width . '" alt="attachment-' . $header_image->attachment_id . '" />';
+		echo '<img src="' . esc_url(get_header_image()) . '" height="' . esc_attr($header_image->height) . '" width="' . esc_attr($header_image->width) . '" alt="attachment-' . esc_attr($header_image->attachment_id) . '" />';
 	}
 }
 

@@ -13,6 +13,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
+				<?php /* translators: %s: search keyword */ ?>
 				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'seo-wp' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 

@@ -197,11 +197,6 @@ function seowp_customize_register( $wp_customize ) {
 
 add_action('customize_register', 'seowp_customize_register');
 
-
-
-
-
-
 // Output Customize CSS
 function seowp_customize_css() { ?>
 
@@ -209,40 +204,43 @@ function seowp_customize_css() { ?>
 
 		/*Preloader innner color*/
 		.progress .indeterminate{
-			background-color: <?php echo get_theme_mod('Preloader_color','#1E88E5');?>;
+			background-color: <?php echo esc_attr(get_theme_mod('Preloader_color','#1E88E5'));?>;
 		}
 
 		/*Preloader progressbar color*/
 		#preloader .row .col .progress{
-			background-color: <?php echo get_theme_mod('Preloader_bar_color','red');?>;
+			background-color: <?php echo esc_attr(get_theme_mod('Preloader_bar_color','red'));?>;
 		}
 
+		#site-navigation .nav-wrapper a.brand-logo {
+			color: #<?php echo esc_attr(get_header_textcolor()); ?>
+		}
 
 		nav{
-			background-color: <?php echo get_theme_mod('wp_header_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_header_color','#1E88E5')); ?>;
 		}
 
 		article .no-thumbnail .card-image .entry-title {
-			background-color: <?php echo get_theme_mod('wp_card_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_card_color','#1E88E5')); ?>;
 		}
 
 		.page-footer,
 		.btn-floating.btn-large i {
-			background-color: <?php echo get_theme_mod('wp_footer_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_footer_color','#1E88E5')); ?>;
 		}
 
 		/*a:link,
 		a:visited {
-			color: <?php echo get_theme_mod('wp_link_color'); ?>;
+			color: <?php echo esc_attr(get_theme_mod('wp_link_color')); ?>;
 		}
 */		
 		
 		.widget-area h3.widget-title:after{
-			background-color: <?php echo get_theme_mod('wp_link_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_link_color','#1E88E5')); ?>;
 		}
 
 		ul.sub-menu {
-			background-color: <?php echo get_theme_mod('wp_header_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_header_color','#1E88E5')); ?>;
 		} 
 
 
@@ -257,11 +255,11 @@ function seowp_customize_css() { ?>
 		}
 
 		.logged-in-as a{
-			color: <?php echo get_theme_mod('wp_link_color','#1E88E5'); ?>;
+			color: <?php echo esc_attr(get_theme_mod('wp_link_color','#1E88E5')); ?>;
 		}
 
 		li.page_item_has_children ul {
-			background-color: <?php echo get_theme_mod('wp_header_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_header_color','#1E88E5')); ?>;
 		}
 
 		div.primary-menu ul li.current_page_item, .current_page_ancestor {
@@ -271,7 +269,7 @@ function seowp_customize_css() { ?>
 		.author.vcard a,
 		.edit-link .post-edit-link,
 		.cat-links a,.tags-links a{
-			color: <?php echo get_theme_mod('wp_link_color','#1E88E5').'!important'; ?>;
+			color: <?php echo esc_attr(get_theme_mod('wp_link_color','#1E88E5')).'!important'; ?>;
 		}
 
 		.btn-a,
@@ -279,36 +277,36 @@ function seowp_customize_css() { ?>
 		.btn-a:visited,
 		.input-field button[type='submit'],
 		div.hd-search #searchsubmit {
-			background-color: <?php echo get_theme_mod('wp_btn_color','#1E88E5'); ?>!important;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_btn_color','#1E88E5')); ?>!important;
 		}
 
 		.btn-a:hover,
 		#searchsubmit:hover,#submit:hover{
-			background-color: <?php echo get_theme_mod('wp_btn_hover_color','#1E88E5'); ?>!important;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_btn_hover_color','#1E88E5')); ?>!important;
 		}
 		
 
 		.form-submit .submit .waves-button-input{
-			background-color: <?php echo get_theme_mod('wp_btn_color','#1E88E5'); ?>;
+			background-color: <?php echo esc_attr(get_theme_mod('wp_btn_color','#1E88E5')); ?>;
 		}
 
 		.related-posts .related-title a{
-    		color: <?php echo get_theme_mod('wp_link_color','#1E88E5'); ?>;
+    		color: <?php echo esc_attr(get_theme_mod('wp_link_color','#1E88E5')); ?>;
 		}
 
 		.nav-links .prev-post span,.nav-links .prev-post,.nav-links .next-post span,.nav-links .next-post,
 		.nav-links .prev-post .material-icons {
-    		color: <?php echo get_theme_mod('wp_link_color','#1E88E5').'!important'; ?>;
+    		color: <?php echo esc_attr(get_theme_mod('wp_link_color','#1E88E5')).'!important'; ?>;
     		transition: 0.3s;
 		}
 
 		.nav-links .page-numbers:hover {
-    		background-color: <?php echo get_theme_mod('wp_btn_hover_color','#1E88E5').'!important'; ?>;
+    		background-color: <?php echo esc_attr(get_theme_mod('wp_btn_hover_color','#1E88E5')).'!important'; ?>;
     		transition: 0.3s;
 		}
 
 		.nav-links .page-numbers {
-    		background-color: <?php echo get_theme_mod('wp_btn_color','#1E88E5').'!important'; ?>;
+    		background-color: <?php echo esc_attr(get_theme_mod('wp_btn_color','#1E88E5')).'!important'; ?>;
     		transition: 0.3s;
 		}
 
